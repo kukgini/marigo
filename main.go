@@ -44,8 +44,7 @@ func main() {
 	             - id: %s 
 	             - label: %s
 	             - did: %s
-	             - type: %s
-               `
+	             - type: %s`
 	log.Printf(resout,
 		invitation.Invitation.ID,
 		invitation.Invitation.Label,
@@ -62,8 +61,7 @@ func main() {
 	             - id: %s 
 	             - label: %s
 	             - did: %s
-	             - type: %s
-               `
+	             - type: %s`
 	log.Printf(resout2,
 		invitation2.Invitation.ID,
 		invitation2.Invitation.Label,
