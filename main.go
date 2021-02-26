@@ -21,7 +21,7 @@ func main() {
 		log.Println("read did failed")
 		log.Fatalln(err)
 	}
-	log.Printf("did document of id=(%s) is (%s) ", diddoc)
+	log.Printf("did=%s, diddoc=%+v\n", did, *diddoc)
 
 	log.Println("create aries framework")
 	framework, err := aries.New(aries.WithVDR(vdr))
