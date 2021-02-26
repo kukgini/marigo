@@ -1,7 +1,0 @@
-{
-  "@context": "https://www.w3.org/ns/did/v1",
-  "id": "simple-example",
-  "name": "John Lennon",
-  "born": "1940-10-09",
-  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
-}
