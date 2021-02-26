@@ -15,12 +15,13 @@ func main() {
 		log.Fatalln(err)
 	}
 	log.Println("check vdr is available")
-	did, err := vdr.Read("21tDAKCERh95uGgKbJNHYp")
+	did := "21tDAKCERh95uGgKbJNHYp"
+	diddoc, err := vdr.Read(did)
 	if err != nil {
 		log.Println("read did failed")
 		log.Fatalln(err)
 	}
-	log.Println(did)
+	log.Printf("did document of id=(%s) is (%s) ", diddoc)
 
 	log.Println("create aries framework")
 	framework, err := aries.New(aries.WithVDR(vdr))
