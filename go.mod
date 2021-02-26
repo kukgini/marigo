@@ -3,15 +3,10 @@ module github.com/kukgini/marigo
 go 1.15
 
 require (
+	github.com/gorilla/mux v1.7.3
 	github.com/hyperledger/aries-framework-go v0.1.6-0.20201230175227-2b6c7532c011
-	github.com/hyperledger/aries-framework-go-ext v0.0.0-20210209170459-14c492334960 // indirect
-	github.com/hyperledger/aries-framework-go-ext/component/vdr/indy v0.0.0-20210209170459-14c492334960 // indirect
-	github.com/hyperledger/indy-vdr/wrappers/golang v0.0.0-20201031155907-5f437d26ed71 // indirect
-	github.com/jaytaylor/mockery-example v0.0.0-20170323165341-bf04a9147d8e // indirect
-	github.com/onsi/ginkgo v1.10.3 // indirect
-	github.com/onsi/gomega v1.7.1 // indirect
-	github.com/stretchr/testify v1.6.1 // indirect
-	goji.io v2.0.2+incompatible // indirect
+	github.com/mitchellh/mapstructure v1.3.2 // indirect
+	github.com/mr-tron/base58 v1.2.0 // indirect
 )
 
 replace (

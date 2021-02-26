@@ -13,12 +13,14 @@ import (
 
 func main() {
     log.Println("create httpbinding vdr")
-    vdr, err := httpbinding.New("http://127.0.0.1:8000/nym")
+    vdr, err := httpbinding.New("http://127.0.0.1:3000/did")
     if err != nil {
         log.Fatalln(err)
     }
     log.Println("check vdr is available")
-    did, err := vdr.Read("2wJPyULfLLnYTEFYzByfUR")
+    did, err := vdr.Read("21tDAKCERh95uGgKbJNHYp.jsonld")
+    //did, err := vdr.Read("123456789abcdefghi.jsonld")
+    //did, err := vdr.Read("simple-example.jsonld")
     if err != nil {
         log.Println("read did failed")
         log.Fatalln(err)
