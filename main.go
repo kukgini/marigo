@@ -38,33 +38,32 @@ func main() {
 	client, _ := didexchange.New(ctx)
 
 	log.Println("create invitation")
-	invitation, _ := client.CreateInvitation("test")
+	createInvitation(client, "test", "")
 
+	log.Println("create invitation with DID")
+	createInvitation(client, "invitationPublic", "21tDAKCERh95uGgKbJNHYp")
+}
+
+func createInvitation(client *didexchange.Client, label string, did string) (*didexchange.Invitation, error) {
+	var invitation *didexchange.Invitation
+	var err error
+	if len(did) > 0 {
+		invitation, err = client.CreateInvitationWithDID("invitationPublic", "21tDAKCERh95uGgKbJNHYp")
+	} else {
+		invitation, err = client.CreateInvitation("invitation")
+	}
+	if err != nil {
+		log.Fatal(err)
+	}
 	resout := `created invitation:
-	             - id: %s 
-	             - label: %s
-	             - did: %s
-	             - type: %s`
+                    - id: %s 
+                    - label: %s
+                    - did: %s
+                    - type: %s`
 	log.Printf(resout,
 		invitation.Invitation.ID,
 		invitation.Invitation.Label,
 		invitation.Invitation.DID,
 		invitation.Invitation.Type)
-
-	log.Println("create invitation with DID")
-	invitation2, err := client.CreateInvitationWithDID("invitationPublic", "21tDAKCERh95uGgKbJNHYp")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	resout2 := `created invitation:
-	             - id: %s 
-	             - label: %s
-	             - did: %s
-	             - type: %s`
-	log.Printf(resout2,
-		invitation2.Invitation.ID,
-		invitation2.Invitation.Label,
-		invitation2.Invitation.DID,
-		invitation2.Invitation.Type)
+	return invitation, err
 }
