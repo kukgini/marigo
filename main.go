@@ -53,11 +53,11 @@ func createInvitation(client *didexchange.Client, label string, did string) (*di
 	if err != nil {
 		log.Fatal(err)
 	}
-	resout := `created invitation:
-                    - id: %s 
-                    - label: %s
-                    - did: %s
-                    - type: %s`
+	resout := `invitation:
+                 - id: %s 
+                 - label: %s
+                 - did: %s
+                 - type: %s`
 	log.Printf(resout,
 		invitation.Invitation.ID,
 		invitation.Invitation.Label,
