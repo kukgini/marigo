@@ -2,10 +2,7 @@ package main
 
 import (
 	"log"
-	/*
-		"github.com/hyperledger/aries-framework-go-ext/component/vdr/indy"
-		"github.com/hyperledger/indy-vdr/wrappers/golang/vdr"
-	*/
+
 	"github.com/hyperledger/aries-framework-go/pkg/client/didexchange"
 	"github.com/hyperledger/aries-framework-go/pkg/framework/aries"
 	"github.com/hyperledger/aries-framework-go/pkg/vdr/httpbinding"
