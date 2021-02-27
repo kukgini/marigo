@@ -5,6 +5,7 @@ import (
 
 	"github.com/hyperledger/aries-framework-go/pkg/client/didexchange"
 	"github.com/hyperledger/aries-framework-go/pkg/framework/aries"
+
 	"github.com/hyperledger/aries-framework-go/pkg/vdr/httpbinding"
 )
 
@@ -46,29 +47,20 @@ func createInvitation(client *didexchange.Client, label string, did string) (*di
 	var invitation *didexchange.Invitation
 	var err error
 	if len(did) > 0 {
-		invitation, err = client.CreateInvitationWithDID("invitationPublic", "21tDAKCERh95uGgKbJNHYp")
+		invitation, err = client.CreateInvitationWithDID(label, did)
 	} else {
-		invitation, err = client.CreateInvitation("invitation")
+		invitation, err = client.CreateInvitation(label)
 	}
 	if err != nil {
 		log.Fatal(err)
 	}
-	invitationFormat := `invitation:
-    - type: %s
-    - id: %s 
-    - label: %s
-    - did: %s
-    - endpoint: %s
-    - recipientKeys: %s
-    - thread: %+v`
-	log.Printf(invitationFormat,
-		invitation.Invitation.Type,
-		invitation.Invitation.ID,
-		invitation.Invitation.Label,
-		invitation.Invitation.DID,
-		invitation.Invitation.ServiceEndpoint,
-		invitation.Invitation.RecipientKeys,
-		invitation.Invitation.Thread,
-	)
+	log.Printf(" - type: %s", invitation.Type)
+	log.Printf(" - id: %s", invitation.ID)
+	log.Printf(" - label: %s", invitation.Label)
+	log.Printf(" - did: %s", invitation.DID)
+	log.Printf(" - service endpoint: %s", invitation.ServiceEndpoint)
+	log.Printf(" - recipient keys: %s", invitation.RecipientKeys)
+	log.Printf(" - thread: %+v", invitation.Thread)
+
 	return invitation, err
 }
