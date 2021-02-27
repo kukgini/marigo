@@ -53,15 +53,22 @@ func createInvitation(client *didexchange.Client, label string, did string) (*di
 	if err != nil {
 		log.Fatal(err)
 	}
-	resout := `invitation:
-                 - id: %s 
-                 - label: %s
-                 - did: %s
-                 - type: %s`
-	log.Printf(resout,
+	invitationFormat := `invitation:
+    - type: %s
+    - id: %s 
+    - label: %s
+    - did: %s
+    - endpoint: %s
+    - recipientKeys: %s
+    - thread: %+v`
+	log.Printf(invitationFormat,
+		invitation.Invitation.Type,
 		invitation.Invitation.ID,
 		invitation.Invitation.Label,
 		invitation.Invitation.DID,
-		invitation.Invitation.Type)
+		invitation.Invitation.ServiceEndpoint,
+		invitation.Invitation.RecipientKeys,
+		invitation.Invitation.Thread,
+	)
 	return invitation, err
 }
